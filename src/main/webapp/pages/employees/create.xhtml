@@ -1,0 +1,64 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Welcome to Employee-manager Project</title>
+</h:head>
+<h:body>
+	<ui:composition template="/layouts/baseLayout.xhtml">
+	<ui:define name="body">
+	
+	<h1>Index Employees Create</h1>
+	<br />
+	<h:form class="form-horizontal">
+		<h:inputHidden id="id" value="#{employeeMB.employee.id}" />
+		
+		<div class="form-group">
+			<h:outputLabel for="nom" value="Nom : " styleClass="col-lg-2 control-label"/>
+			<div class="col-lg-6">
+				<h:inputText id="nom" value="#{employeeMB.employee.nom}" required="true" styleClass="form-control">
+					<f:validateLength minimum="5" />
+				</h:inputText>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<h:outputLabel for="prenom" value="Prenom : " styleClass="col-lg-2 control-label"/>
+			<div class="col-lg-6">
+				<h:inputText id="prenom" value="#{employeeMB.employee.prenom}" required="true" styleClass="form-control">
+					<f:validateLength minimum="5" />
+				</h:inputText>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<h:outputLabel for="login" value="Login : " styleClass="col-lg-2 control-label"/>
+			<div class="col-lg-6">
+				<h:inputText id="login" value="#{employeeMB.employee.login}" required="true" styleClass="form-control">
+					<f:validateLength minimum="5" />
+				</h:inputText>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<h:outputLabel for="password" value="Password : " styleClass="col-lg-2 control-label"/>
+			<div class="col-lg-6">
+				<h:inputText id="password" value="#{employeeMB.employee.password}" required="true" styleClass="form-control">
+					<f:validateLength minimum="5" />
+				</h:inputText>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<div class="col-lg-offset-2 col-lg-6">
+				<h:commandButton id="create" value="Ajouter" action="#{employeeMB.create}" ajax="false" styleClass="btn btn-default" />
+			</div>
+		</div>
+	</h:form>
+		
+	</ui:define>
+	</ui:composition>
+</h:body>
+</html>

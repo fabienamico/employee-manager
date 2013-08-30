@@ -21,11 +21,12 @@ http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.6</java.version>
+		<java.version>1.7</java.version>
 		<spring.version>3.2.3.RELEASE</spring.version>
 		<spring.security.version>3.1.4.RELEASE</spring.security.version>
 		<hibernate.version>4.2.2.Final</hibernate.version>
 		<dbcp.version>1.4</dbcp.version>
+		<version.junit>4.8.2</version.junit>
 	</properties>
 
 	<dependencies>
@@ -90,7 +91,7 @@ http://maven.apache.org/maven-v4_0_0.xsd">
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-			<version>3.1.1</version>
+			<version>3.5</version>
 		</dependency>
 
 		<!-- Hibernate library -->
@@ -137,7 +138,22 @@ http://maven.apache.org/maven-v4_0_0.xsd">
 			<artifactId>testng</artifactId>
 			<version>6.4</version>
 		</dependency>
-
+		
+		<!-- Lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>0.12.0</version>
+		</dependency>
+		
+		<!-- Junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${version.junit}</version>
+			<scope>test</scope>
+		</dependency>
+            
 	</dependencies>
 
 	<build>

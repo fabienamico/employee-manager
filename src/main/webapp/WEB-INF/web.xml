@@ -6,7 +6,7 @@
          id="WebApp_ID"
          version="2.5">
  
-      <display-name>MavenSpringJsfTemplate</display-name>
+      <display-name>employee-manager</display-name>
  
       <!-- Spring Context Configuration' s Path definition -->
       <context-param>
@@ -36,7 +36,8 @@
  
       <!-- Welcome Page -->
       <welcome-file-list>
-        <welcome-file>/pages/index.xhtml</welcome-file>
+        <welcome-file>index.jsf</welcome-file>
+        <welcome-file>index.xhtml</welcome-file>
       </welcome-file-list>
 
 	<servlet>
@@ -45,18 +46,9 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
-
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.jsf</url-pattern>
 	</servlet-mapping>
-
  
 </web-app>
-
-
-
-
-
-
-

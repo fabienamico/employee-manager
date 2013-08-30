@@ -8,26 +8,38 @@
 <h:body>
     <h:form>
         <h:outputText value="USERs : "></h:outputText>
-        <h:dataTable id="users" var="user" value="#{userMB.userList}" style="width: 10%">
-            <h:column>
+        <p:dataTable id="users" var="user" value="#{userMB.userList}" style="width: 10%">
+            <p:column>
                 <f:facet name="header">
                     <h:outputText value="ID" />
                 </f:facet>
                 <h:outputText value="#{user.id}" />
-            </h:column>
-            <h:column>
+            </p:column>
+            <p:column>
                 <f:facet name="header">
                     <h:outputText value="Nom" />
                 </f:facet>
                 <h:outputText value="#{user.lastName}" />
-            </h:column>
-            <h:column>
+            </p:column>
+            <p:column>
                 <f:facet name="header">
                     <h:outputText value="Prenom" />
                 </f:facet>
                 <h:outputText value="#{user.firstName}" />
-            </h:column>
-        </h:dataTable>
+            </p:column>
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="ACTIONS" />
+                </f:facet>
+                
+  				<p:commandButton type="button" onclick="cd.show()" value="Supprimer" />
+			    <p:confirmDialog message="Supprimer cet utilisateur ?" header="Suppression utilisateur" severity="alert" widgetVar="cd">  
+			        <p:commandButton value="Oui" type="submit" actionListener="#{userMB.deleteUser}" oncomplete="cd.hide()" update="users" />  
+			        <p:commandButton value="Non" type="button" onclick="cd.hide();" />       
+			    </p:confirmDialog>
+			    
+            </p:column>
+        </p:dataTable>
     </h:form>
 </h:body>
  
