@@ -10,9 +10,11 @@
 	<ui:composition template="/layouts/baseLayout.xhtml">
 	<ui:define name="body">
 	
-	<h1>Index Employees Create</h1>
+	<h1>Modification Employe</h1>
 	<br />
 	<h:form class="form-horizontal">
+		<h:inputHidden id="id" value="#{employeeMB.employee.id}" />
+		
 		<div class="form-group">
 			<h:outputLabel for="nom" value="Nom : " styleClass="col-lg-2 control-label"/>
 			<div class="col-lg-6">
@@ -51,7 +53,7 @@
 		
 		<div class="form-group">
 			<div class="col-lg-offset-2 col-lg-6">
-				<h:commandButton id="create" value="Ajouter" action="#{employeeMB.create}" ajax="false" styleClass="btn btn-primary" />
+				<h:commandButton id="update" value="Modifier" action="#{employeeMB.update}" ajax="false" styleClass="btn btn-primary" />
 			</div>
 		</div>
 	</h:form>

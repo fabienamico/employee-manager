@@ -9,27 +9,60 @@
 <h:body>
 	<ui:composition template="/layouts/baseLayout.xhtml">
 	<ui:define name="body">
+	
 	<h1>Index Employees</h1>
 	<br />
 
 	<div>
-		<h:link value="Ajouter un employe" outcome="create" class="btn btn-success" />
+		<h:link outcome="create" class="btn btn-success">
+			<span class="glyphicon glyphicon-plus-sign"></span>
+			Ajouter un employe
+		</h:link>
 	</div>
 	<br />
 	
-	<div>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-		Donec cursus metus tellus, vitae venenatis quam tincidunt quis. Quisque
-		in consequat sem, ut vestibulum ligula. Aenean euismod magna odio, vel
-		pharetra nunc laoreet vel. Fusce varius sapien nibh, quis luctus erat
-		pulvinar vel. Etiam non volutpat nibh, at volutpat felis. Maecenas
-		convallis velit non justo eleifend tempus. Nullam vehicula, urna sit
-		amet fermentum tincidunt, dolor dolor luctus est, at posuere mauris
-		justo ut enim. Maecenas vel erat lectus. Pellentesque dui tortor,
-		rhoncus nec bibendum quis, placerat vitae nisl. Morbi lobortis quis sem
-		in rutrum. Nunc euismod rhoncus sem at volutpat. Suspendisse egestas
-		urna urna, a ultricies risus fringilla mattis.
-	</div>
+	<h:form>
+	<h:dataTable id="employees" var="employee" value="#{employeeMB.employees}" class="table table-striped table-bordered table-hover">
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="ID" />
+            </f:facet>
+            <h:outputText value="#{employee.id}" />
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Nom" />
+            </f:facet>
+            <h:outputText value="#{employee.nom}" />
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Prenom" />
+            </f:facet>
+            <h:outputText value="#{employee.prenom}" />
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Login" />
+            </f:facet>
+            <h:outputText value="#{employee.login}" />
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Actions" />
+            </f:facet>
+            <h:commandLink action="#{employeeMB.formUpdate}" class="btn btn-xs btn-primary">
+				<span class="glyphicon glyphicon-edit"></span>
+				Modifier
+			</h:commandLink>
+            <h:commandLink action="#{employeeMB.delete}" class="btn btn-xs btn-danger" onclick="return confirm('Supprimer ce client (#{employee.prenom} #{employee.nom}) ?');">
+				<span class="glyphicon glyphicon-trash"></span>
+				Supprimer
+			</h:commandLink>
+        </h:column>
+    </h:dataTable>
+    </h:form>
+
 	</ui:define>
 	</ui:composition>
 </h:body>

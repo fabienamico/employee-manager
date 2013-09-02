@@ -100,5 +100,10 @@ public class Employee implements Serializable {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", login=" + login + ", password=" + password + "]";
+	}
 	
 }

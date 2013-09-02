@@ -27,6 +27,7 @@ http://maven.apache.org/maven-v4_0_0.xsd">
 		<hibernate.version>4.2.2.Final</hibernate.version>
 		<dbcp.version>1.4</dbcp.version>
 		<version.junit>4.8.2</version.junit>
+		<version.mysql>5.1.26</version.mysql>
 	</properties>
 
 	<dependencies>
@@ -117,7 +118,8 @@ http://maven.apache.org/maven-v4_0_0.xsd">
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.17</version>
+			<version>${version.mysql}</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -125,7 +127,7 @@ http://maven.apache.org/maven-v4_0_0.xsd">
 			<artifactId>c3p0</artifactId>
 			<version>0.9.1.2</version>
 		</dependency>
-
+		
 		<!-- Log4j library -->
 		<dependency>
 			<groupId>log4j</groupId>
