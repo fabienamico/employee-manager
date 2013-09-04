@@ -5,3 +5,7 @@ body {
 .navbar-header {
     padding-left: 0;
 }
+
+.btn {
+	margin-right: 5px;
+}

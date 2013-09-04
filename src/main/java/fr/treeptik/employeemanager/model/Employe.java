@@ -6,9 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
-public class Employee implements Serializable {
+public class Employe implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -22,18 +23,22 @@ public class Employee implements Serializable {
 	
 	private String login;
 	
-	private String password;	
+	private String password;
 	
-	public Employee() {
+	@OneToOne
+	private Equipe equipe;
+	
+	public Employe() {
 	}
 
-	public Employee(Integer id, String nom, String prenom, String login, String password) {
+	public Employe(Integer id, String nom, String prenom, String login, String password, Equipe equipe) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.login = login;
 		this.password = password;
+		this.equipe = equipe;
 	}
 
 	public Integer getId() {
@@ -76,6 +81,14 @@ public class Employee implements Serializable {
 		this.password = password;
 	}
 
+	public Equipe getEquipe() {
+		return equipe;
+	}
+
+	public void setEquipe(Equipe equipe) {
+		this.equipe = equipe;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -92,7 +105,7 @@ public class Employee implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Employee other = (Employee) obj;
+		Employe other = (Employe) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -103,7 +116,11 @@ public class Employee implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", login=" + login + ", password=" + password + "]";
+		return "Employee [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", login=" + login + ", password=" + password + ", equipe=" + equipe + "]";
+	}
+	
+	public String getLabel() {
+		return prenom + " " + nom;
 	}
 	
 }

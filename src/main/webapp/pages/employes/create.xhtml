@@ -14,9 +14,18 @@
 	<br />
 	<h:form class="form-horizontal">
 		<div class="form-group">
+			<h:outputLabel for="equipe" value="Equipe : " styleClass="col-lg-2 control-label"/>
+			<div class="col-lg-6">
+				<h:selectOneMenu value="#{employeMB.employe.equipe.id}" styleClass="form-control">
+		   			<f:selectItems value="#{employeMB.equipes}" />
+		   		</h:selectOneMenu>
+			</div>
+		</div>
+
+		<div class="form-group">
 			<h:outputLabel for="nom" value="Nom : " styleClass="col-lg-2 control-label"/>
 			<div class="col-lg-6">
-				<h:inputText id="nom" value="#{employeeMB.employee.nom}" required="true" styleClass="form-control">
+				<h:inputText id="nom" value="#{employeMB.employe.nom}" required="true" styleClass="form-control">
 					<f:validateLength minimum="5" />
 				</h:inputText>
 			</div>
@@ -25,7 +34,7 @@
 		<div class="form-group">
 			<h:outputLabel for="prenom" value="Prenom : " styleClass="col-lg-2 control-label"/>
 			<div class="col-lg-6">
-				<h:inputText id="prenom" value="#{employeeMB.employee.prenom}" required="true" styleClass="form-control">
+				<h:inputText id="prenom" value="#{employeMB.employe.prenom}" required="true" styleClass="form-control">
 					<f:validateLength minimum="5" />
 				</h:inputText>
 			</div>
@@ -34,7 +43,7 @@
 		<div class="form-group">
 			<h:outputLabel for="login" value="Login : " styleClass="col-lg-2 control-label"/>
 			<div class="col-lg-6">
-				<h:inputText id="login" value="#{employeeMB.employee.login}" required="true" styleClass="form-control">
+				<h:inputText id="login" value="#{employeMB.employe.login}" required="true" styleClass="form-control">
 					<f:validateLength minimum="5" />
 				</h:inputText>
 			</div>
@@ -43,7 +52,7 @@
 		<div class="form-group">
 			<h:outputLabel for="password" value="Password : " styleClass="col-lg-2 control-label"/>
 			<div class="col-lg-6">
-				<h:inputText id="password" value="#{employeeMB.employee.password}" required="true" styleClass="form-control">
+				<h:inputText id="password" value="#{employeMB.employe.password}" required="true" styleClass="form-control">
 					<f:validateLength minimum="5" />
 				</h:inputText>
 			</div>
@@ -51,7 +60,7 @@
 		
 		<div class="form-group">
 			<div class="col-lg-offset-2 col-lg-6">
-				<h:commandButton id="create" value="Ajouter" action="#{employeeMB.create}" ajax="false" styleClass="btn btn-primary" />
+				<h:commandButton id="create" value="Ajouter" action="#{employeMB.create}" ajax="false" styleClass="btn btn-primary" />
 			</div>
 		</div>
 	</h:form>

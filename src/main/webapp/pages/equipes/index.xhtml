@@ -1,0 +1,73 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Welcome to Employee-manager Project</title>
+</h:head>
+<h:body>
+	<ui:composition template="/layouts/baseLayout.xhtml">
+	<ui:define name="body">
+	
+	<h1>Liste Equipes</h1>
+	<br />
+
+	<div>
+		<h:link outcome="create" class="btn btn-success">
+			<span class="glyphicon glyphicon-plus-sign"></span>
+			Ajouter une equipe
+		</h:link>
+	</div>
+	<br />
+	
+	<h:form>
+	<h:dataTable id="employees" var="equipe" value="#{equipeMB.equipes}" styleClass="table table-striped table-bordered table-hover">
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="ID" />
+            </f:facet>
+            <h:outputText value="#{equipe.id}" />
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Equipe" />
+            </f:facet>
+            <h:outputText value="#{equipe.nom}" />
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Chef" />
+            </f:facet>
+            <h:outputText value="#{equipe.chef.nom} #{equipe.chef.prenom}" />
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Departement" />
+            </f:facet>
+            <h:outputText value="#{equipe.departement.nom}" />
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Actions" />
+            </f:facet>
+            <h:commandLink action="#{equipeMB.initUpdate}" styleClass="btn btn-xs btn-primary">
+				<span class="glyphicon glyphicon-edit"></span>
+				Modifier
+			</h:commandLink>
+            <h:commandLink action="#{equipeMB.delete}" styleClass="btn btn-xs btn-danger" onclick="return confirm('Supprimer cette equipe (#{equipe.nom}) ?');">
+				<span class="glyphicon glyphicon-trash"></span>
+				Supprimer
+			</h:commandLink>
+        </h:column>
+    </h:dataTable>
+    </h:form>
+
+	</ui:define>
+	</ui:composition>
+</h:body>
+</html>

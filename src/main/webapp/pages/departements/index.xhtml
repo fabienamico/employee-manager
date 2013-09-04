@@ -10,52 +10,49 @@
 	<ui:composition template="/layouts/baseLayout.xhtml">
 	<ui:define name="body">
 	
-	<h1>Index Employees</h1>
+	<h1>Liste Departements</h1>
 	<br />
 
 	<div>
 		<h:link outcome="create" class="btn btn-success">
 			<span class="glyphicon glyphicon-plus-sign"></span>
-			Ajouter un employe
+			Ajouter un departement
 		</h:link>
 	</div>
 	<br />
 	
 	<h:form>
-	<h:dataTable id="employees" var="employee" value="#{employeeMB.employees}" class="table table-striped table-bordered table-hover">
+	<h:dataTable id="departements" var="departement" value="#{departementMB.departements}" styleClass="table table-striped table-bordered table-hover">
         <h:column>
             <f:facet name="header">
                 <h:outputText value="ID" />
             </f:facet>
-            <h:outputText value="#{employee.id}" />
+            <h:outputText value="#{departement.id}" />
         </h:column>
+        
         <h:column>
             <f:facet name="header">
-                <h:outputText value="Nom" />
+                <h:outputText value="Departement" />
             </f:facet>
-            <h:outputText value="#{employee.nom}" />
+            <h:outputText value="#{departement.nom}" />
         </h:column>
+        
         <h:column>
             <f:facet name="header">
-                <h:outputText value="Prenom" />
+                <h:outputText value="Responsable" />
             </f:facet>
-            <h:outputText value="#{employee.prenom}" />
+            <h:outputText value="#{departement.responsable.label}" />
         </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="Login" />
-            </f:facet>
-            <h:outputText value="#{employee.login}" />
-        </h:column>
+
         <h:column>
             <f:facet name="header">
                 <h:outputText value="Actions" />
             </f:facet>
-            <h:commandLink action="#{employeeMB.formUpdate}" class="btn btn-xs btn-primary">
+            <h:commandLink action="#{departementMB.initUpdate}" styleClass="btn btn-xs btn-primary">
 				<span class="glyphicon glyphicon-edit"></span>
 				Modifier
 			</h:commandLink>
-            <h:commandLink action="#{employeeMB.delete}" class="btn btn-xs btn-danger" onclick="return confirm('Supprimer ce client (#{employee.prenom} #{employee.nom}) ?');">
+            <h:commandLink action="#{departementMB.delete}" styleClass="btn btn-xs btn-danger" onclick="return confirm('Supprimer ce departement (#{departement.nom}) ?');">
 				<span class="glyphicon glyphicon-trash"></span>
 				Supprimer
 			</h:commandLink>

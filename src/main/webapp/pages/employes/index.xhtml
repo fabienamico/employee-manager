@@ -1,0 +1,80 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Welcome to Employee-manager Project</title>
+</h:head>
+<h:body>
+	<ui:composition template="/layouts/baseLayout.xhtml">
+	<ui:define name="body">
+	
+	<h1>Liste Employes</h1>
+	<br />
+
+	<div>
+		<h:link outcome="create" class="btn btn-success">
+			<span class="glyphicon glyphicon-plus-sign"></span>
+			Ajouter un employe
+		</h:link>
+	</div>
+	<br />
+	
+	<h:form>
+	<h:dataTable id="employes" var="employe" value="#{employeMB.employes}" styleClass="table table-striped table-bordered table-hover">
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="ID" />
+            </f:facet>
+            <h:outputText value="#{employe.id}" />
+        </h:column>
+        
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Nom" />
+            </f:facet>
+            <h:outputText value="#{employe.nom}" />
+        </h:column>
+        
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Prenom" />
+            </f:facet>
+            <h:outputText value="#{employe.prenom}" />
+        </h:column>
+        
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Login" />
+            </f:facet>
+            <h:outputText value="#{employe.login}" />
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Equipe" />
+            </f:facet>
+            <h:outputText value="#{employe.equipe.nom}" />
+        </h:column>
+        
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Actions" />
+            </f:facet>
+            <h:commandLink action="#{employeMB.initUpdate}" styleClass="btn btn-xs btn-primary">
+				<span class="glyphicon glyphicon-edit"></span>
+				Modifier
+			</h:commandLink>
+            <h:commandLink action="#{employeMB.delete}"  styleClass="btn btn-xs btn-danger" onclick="return confirm('Supprimer ce client (#{employe.prenom} #{employe.nom}) ?');">
+				<span class="glyphicon glyphicon-trash"></span>
+				Supprimer
+			</h:commandLink>
+        </h:column>
+    </h:dataTable>
+    </h:form>
+
+	</ui:define>
+	</ui:composition>
+</h:body>
+</html>
