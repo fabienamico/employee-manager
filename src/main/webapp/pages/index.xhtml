@@ -1,30 +1,27 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
-<h:head>
-	<title>Welcome to Employee-manager Project</title>
-</h:head>
-<h:body>
-	<ui:composition template="/layouts/baseLayout.xhtml">
-	<ui:define name="body">
-	<h1>Index</h1>
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/layouts/baseLayout.xhtml">
 
-	<div>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-		Donec cursus metus tellus, vitae venenatis quam tincidunt quis. Quisque
-		in consequat sem, ut vestibulum ligula. Aenean euismod magna odio, vel
-		pharetra nunc laoreet vel. Fusce varius sapien nibh, quis luctus erat
-		pulvinar vel. Etiam non volutpat nibh, at volutpat felis. Maecenas
-		convallis velit non justo eleifend tempus. Nullam vehicula, urna sit
-		amet fermentum tincidunt, dolor dolor luctus est, at posuere mauris
-		justo ut enim. Maecenas vel erat lectus. Pellentesque dui tortor,
-		rhoncus nec bibendum quis, placerat vitae nisl. Morbi lobortis quis sem
-		in rutrum. Nunc euismod rhoncus sem at volutpat. Suspendisse egestas
-		urna urna, a ultricies risus fringilla mattis.
-	</div>
+	<ui:param name="indexActive" value="active" />
+
+	<ui:define name="body">
+		<h1>Index</h1>
+	
+		<div>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+			Donec cursus metus tellus, vitae venenatis quam tincidunt quis. Quisque
+			in consequat sem, ut vestibulum ligula. Aenean euismod magna odio, vel
+			pharetra nunc laoreet vel. Fusce varius sapien nibh, quis luctus erat
+			pulvinar vel. Etiam non volutpat nibh, at volutpat felis. Maecenas
+			convallis velit non justo eleifend tempus. Nullam vehicula, urna sit
+			amet fermentum tincidunt, dolor dolor luctus est, at posuere mauris
+			justo ut enim. Maecenas vel erat lectus. Pellentesque dui tortor,
+			rhoncus nec bibendum quis, placerat vitae nisl. Morbi lobortis quis sem
+			in rutrum. Nunc euismod rhoncus sem at volutpat. Suspendisse egestas
+			urna urna, a ultricies risus fringilla mattis.
+		</div>
 	</ui:define>
-	</ui:composition>
-</h:body>
-</html>
+</ui:composition>

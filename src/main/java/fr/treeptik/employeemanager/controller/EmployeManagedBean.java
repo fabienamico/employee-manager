@@ -43,6 +43,9 @@ public class EmployeManagedBean implements Serializable {
 	}
 	
 	public String create() throws ServiceException {
+		if (employe.getEquipe().getId() == 0) {
+			employe.setEquipe(null);
+		}
 		employeService.save(employe);
 		return "index";
 	}
@@ -53,6 +56,9 @@ public class EmployeManagedBean implements Serializable {
 	}
 	
 	public String update() throws ServiceException {
+		if (employe.getEquipe().getId() == 0) {
+			employe.setEquipe(null);
+		}
 		employeService.update(employe);
 		return "index";
 	}
